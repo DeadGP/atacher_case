@@ -143,7 +143,7 @@ class _IndexState extends State<Index> {
                               buttons: [
                                 DialogButton(
                                   color: Colors.transparent,
-                                  child: Image.asset('git.png'),
+                                  child: Image.asset('assets/git.png'),
                                   onPressed: () {
                                     downloadFile(
                                         'https://github.com/DeadGP/Professiomap-frontEnd');
@@ -161,7 +161,7 @@ class _IndexState extends State<Index> {
                         },
                         splashColor: Colors.amber,
                         child: Ink.image(
-                          image: const AssetImage('login.jpg'),
+                          image: const AssetImage('assets/login.jpg'),
                           fit: BoxFit.cover,
                         ))))
           ],

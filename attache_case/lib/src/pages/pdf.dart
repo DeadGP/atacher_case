@@ -16,7 +16,7 @@ class PDFCV extends StatefulWidget {
 
 class _PDFCVState extends State<PDFCV> {
   final pdfController = PdfController(
-    document: PdfDocument.openAsset('cv.pdf'),
+    document: PdfDocument.openAsset('assets/cv.pdf'),
   );
 
   @override
@@ -25,17 +25,19 @@ class _PDFCVState extends State<PDFCV> {
         appBar: AppBar(
           title: const Text('CV'),
         ),
-        body: Column(
-          children: [
-            SizedBox(
-              child: _pdf(),
-              height: 800.0,
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
-            _button()
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                child: _pdf(),
+                height: 800.0,
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              _button()
+            ],
+          ),
         ));
   }
 
