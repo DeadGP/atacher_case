@@ -2,6 +2,7 @@
 
 import 'dart:html';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:attache_case/src/pages/pdf.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -79,6 +80,10 @@ class _IndexState extends State<Index> {
             const SizedBox(
               height: 25.0,
             ),
+            _info(),
+            const SizedBox(
+              height: 25.0,
+            ),
             _projects(),
           ],
         ),
@@ -90,7 +95,7 @@ class _IndexState extends State<Index> {
   Widget _title() {
     return Center(
         child: Text(
-      'Backend Developer JR',
+      'full stack Developer JR',
       style: GoogleFonts.abel(
           textStyle: Theme.of(context).textTheme.headline3,
           fontSize: 35.0,
@@ -101,7 +106,7 @@ class _IndexState extends State<Index> {
 
   Widget _acerca() {
     return Text(
-      '''Soy un desarrollador Backend, utilizando tecnologías como Node.JS (Express.JS), con experiencía en base de datos MySql, MariaDB, PostgreSql, SqlServer.
+      '''Soy un desarrollador full stack, utilizando tecnologías como Node.JS (Express.JS), con experiencía en base de datos MySql, MariaDB, PostgreSql, SqlServer.
       Lenguajes de programación como Dart (Framework Flutter), desarrollando aplicaciones móviles para Android, páginas Web.
       Estudié en la Universidad de Colima, Facultad de Ingeniería Mecánica y Eléctrica, obteniendo el título de Ingenierío en Sistemas Computaciones.
       ''',
@@ -110,6 +115,14 @@ class _IndexState extends State<Index> {
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.normal),
     );
+  }
+
+  Widget _info() {
+    return Text('Da clic en la imagen para ver la información',
+        style: GoogleFonts.abel(
+            fontSize: 18.0,
+            fontWeight: FontWeight.bold,
+            fontStyle: FontStyle.normal));
   }
 
   downloadFile(url) {
@@ -123,47 +136,72 @@ class _IndexState extends State<Index> {
       children: [
         Row(
           children: [
-            SizedBox(
-                width: 200.0,
-                height: 400.0,
-                child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
-                    ),
-                    elevation: 15.0,
-                    color: const Color.fromARGB(255, 63, 9, 212),
-                    child: InkWell(
-                        onTap: () async {
-                          Alert(
-                              context: context,
-                              title: 'Profesiomap',
-                              desc:
-                                  '''Primer proyecto: aplicación móvil para android, desarrollada en Flutter, 
+            FadeIn(
+              delay: const Duration(milliseconds: 5),
+              child: SizedBox(
+                  width: 200.0,
+                  height: 400.0,
+                  child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      elevation: 15.0,
+                      color: const Color.fromARGB(255, 63, 9, 212),
+                      child: InkWell(
+                          onTap: () async {
+                            Alert(
+                                context: context,
+                                title: 'Profesiomap',
+                                desc:
+                                    '''Primer proyecto: aplicación móvil para android, desarrollada en Flutter, 
                                   para la red social académica Professiomap.''',
-                              buttons: [
-                                DialogButton(
-                                  color: Colors.transparent,
-                                  child: Image.asset('assets/git.png'),
-                                  onPressed: () {
-                                    downloadFile(
-                                        'https://github.com/DeadGP/Professiomap-frontEnd');
-                                  },
-                                  width: 50.0,
-                                ),
-                                DialogButton(
-                                  child: const Text('Aceptar'),
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  width: 120.0,
-                                )
-                              ]).show();
-                        },
-                        splashColor: Colors.amber,
-                        child: Ink.image(
-                          image: const AssetImage('assets/login.jpg'),
-                          fit: BoxFit.cover,
-                        ))))
+                                buttons: [
+                                  DialogButton(
+                                    color: Colors.transparent,
+                                    child: Image.asset('assets/git.png'),
+                                    onPressed: () {
+                                      downloadFile(
+                                          'https://github.com/DeadGP/Professiomap-frontEnd');
+                                    },
+                                    width: 50.0,
+                                  ),
+                                  DialogButton(
+                                    child: const Text('Aceptar'),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    width: 120.0,
+                                  )
+                                ]).show();
+                          },
+                          splashColor: Colors.amber,
+                          child: Ink.image(
+                            image: const AssetImage('assets/login.jpg'),
+                            fit: BoxFit.cover,
+                          )))),
+            ),
+            FadeIn(
+                child: SizedBox(
+              width: 200.0,
+              height: 400.0,
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
+                elevation: 15.0,
+                color: const Color.fromARGB(255, 63, 9, 212),
+                child: InkWell(
+                  onTap: () async {
+                    Alert(context: context).show();
+                  },
+                  splashColor: Colors.amber,
+                  child: Ink.image(
+                    image: const AssetImage('assets/back_end.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            )),
           ],
         )
       ],

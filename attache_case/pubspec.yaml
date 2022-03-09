@@ -34,6 +34,7 @@ dependencies:
   flowder: ^0.2.0
   path_provider: ^2.0.9
   rflutter_alert: ^2.0.4
+  animate_do: ^2.1.0
   
 
 
