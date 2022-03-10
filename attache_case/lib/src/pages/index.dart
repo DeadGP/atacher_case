@@ -192,7 +192,30 @@ class _IndexState extends State<Index> {
                 color: const Color.fromARGB(255, 63, 9, 212),
                 child: InkWell(
                   onTap: () async {
-                    Alert(context: context).show();
+                    Alert(
+                        context: context,
+                        title: 'Profesiomap',
+                        desc:
+                            '''Sgundo proyecto: Backend desarrollado en Node.Js (Express.Js), 
+                                  para la red social académica Professiomap.''',
+                        buttons: [
+                          DialogButton(
+                            color: Colors.transparent,
+                            child: Image.asset('assets/git.png'),
+                            onPressed: () {
+                              downloadFile(
+                                  'https://github.com/DeadGP/professio_backend');
+                            },
+                            width: 50.0,
+                          ),
+                          DialogButton(
+                            child: const Text('Aceptar'),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            width: 120.0,
+                          )
+                        ]).show();
                   },
                   splashColor: Colors.amber,
                   child: Ink.image(
